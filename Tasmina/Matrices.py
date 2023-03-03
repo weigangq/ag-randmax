@@ -1,6 +1,5 @@
 import matplotlib.pyplot as plt
 import numpy as np
-import math
 import random
 import argparse
 
@@ -80,7 +79,7 @@ def hyperuniformdistribution():
                     y = random.uniform(h, h+spacing-begin)
                 dot = plt.Circle((x,y), radius=0.1, color="black")
                 background.add_patch(dot)
-    rect = plt.Rectangle((0,0),width=width,height=height,color="black",fill=False)
+    rect = plt.Rectangle((0,0),width=width+begin,height=height+begin,color="black",fill=False)
     background.add_patch(rect)
 
 # Ring - this needs to be fixed
