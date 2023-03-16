@@ -8,8 +8,8 @@ from matplotlib.patches import Circle
 
 # Parameters
 parser = argparse.ArgumentParser(description='Pick the dimensions/distributions')
-parser.add_argument('-N', '--num_rings', type=int, help='Number of rings (Default 5)', default = 5)
-parser.add_argument('-R', '--rad_rings', type=int, help='Radius of rings (Default 10)', default = 10)
+parser.add_argument('-N', '--num_rings', type=int, help='Number of rings (Default 5)', default = 10)
+parser.add_argument('-R', '--rad_rings', type=int, help='Maxium radius of rings (Default 10)', default = 10)
 parser.add_argument('-W', '--width', type=int, help='Width of distribution of points(from the center of leftmost point to center of rightmost point) (Default 60)', default = 60)
 parser.add_argument('-H', '--height', type=int, help='Height of distribution (from center of top point to center of bottom point) (Default 80)', default = 80)
 parser.add_argument('-D', '--dist', choices=['ordered','random','hyperuniform'], help='Type of distribution (Default hyperuniform)', default='hyperuniform')
@@ -87,13 +87,19 @@ def hyperuniformdistribution():
     rect = plt.Rectangle((0,0),width=width+begin,height=height+begin,color="black",fill=False)
     background.add_patch(rect)
 
-# Ring
+# Rings
 for ring in range(rings):
     ring_x = random.uniform(radius,width-radius)
     ring_y = random.uniform(radius,height-radius)
-    circle = plt.Circle((ring_x, ring_y), radius=radius, color='blue', fill=False)
+    rad = random.uniform(1,radius)
+    circle = plt.Circle((ring_x, ring_y), radius=rad, color='blue', fill=False)
     '''
-    Perform calculations here to find the number of dots in the ring
+    Calculations:
+    - Area of ring
+    - Perimeter of ring
+    - Dots in ring area
+    - Dots in ring perimeter
+    - Variance
     '''
     background.add_patch(circle)
 
@@ -104,6 +110,9 @@ if args.dist == 'random':
     randomdistribution()
 if args.dist == 'hyperuniform':
     hyperuniformdistribution()
+'''
+Plots here
+'''
 
 '''
 To Do:
