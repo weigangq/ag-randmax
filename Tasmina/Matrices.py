@@ -2,11 +2,14 @@ import matplotlib.pyplot as plt
 import numpy as np
 import random
 import argparse
+import math 
+from matplotlib.patches import Circle
+
 
 # Parameters
 parser = argparse.ArgumentParser(description='Pick the dimensions/distributions')
-#parser.add_argument('-N', '--num_rings', type=int, help='Number of rings (Default 3)', default = 3)
-#parser.add_argument('-R', '--rad_rings', type=int, help='Radius of rings (Default 10)', default = 10)
+parser.add_argument('-N', '--num_rings', type=int, help='Number of rings (Default 5)', default = 5)
+parser.add_argument('-R', '--rad_rings', type=int, help='Radius of rings (Default 10)', default = 10)
 parser.add_argument('-W', '--width', type=int, help='Width of distribution of points(from the center of leftmost point to center of rightmost point) (Default 60)', default = 60)
 parser.add_argument('-H', '--height', type=int, help='Height of distribution (from center of top point to center of bottom point) (Default 80)', default = 80)
 parser.add_argument('-D', '--dist', choices=['ordered','random','hyperuniform'], help='Type of distribution (Default hyperuniform)', default='hyperuniform')
@@ -19,6 +22,8 @@ background = fig.add_subplot()
 width = args.width
 height = args.height
 dots = args.circles
+rings = args.num_rings
+radius = args.rad_rings
 
 # Distributions
 '''
@@ -82,11 +87,15 @@ def hyperuniformdistribution():
     rect = plt.Rectangle((0,0),width=width+begin,height=height+begin,color="black",fill=False)
     background.add_patch(rect)
 
-# Ring - this needs to be fixed
-'''
-circle1 = plt.Circle((10, 10), radius=args.rad_rings, color='blue', fill=False)
-background.add_patch(circle1)
-'''
+# Ring
+for ring in range(rings):
+    ring_x = random.uniform(radius,width-radius)
+    ring_y = random.uniform(radius,height-radius)
+    circle = plt.Circle((ring_x, ring_y), radius=radius, color='blue', fill=False)
+    '''
+    Perform calculations here to find the number of dots in the ring
+    '''
+    background.add_patch(circle)
 
 # Main
 if args.dist == 'ordered':
@@ -99,7 +108,6 @@ if args.dist == 'hyperuniform':
 '''
 To Do:
 - Space for variance ???
-- Standardize the number of points needed for each distribution
 '''
 
 background.axis('equal')
