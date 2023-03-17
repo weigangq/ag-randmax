@@ -24,8 +24,9 @@ This paper uses spacings of adjacent eigenvalues (Ps) to characterize cancer gen
 ### An example of using language model for predicting sequence evolution
 - Hie, Yang, and Kim (2023). Evolutionary velocity with protein language models pedicts evolutionary dynamics of diverse proteins. https://www.sciencedirect.com/science/article/pii/S2405471222000382
 
-## Data sets
+## Data & tools
 - Conoserver: https://www.conoserver.org/
 - AlphaFold: https://github.com/deepmind/alphafold
+- Conodictor: https://github.com/koualab/conodictor
 
 
