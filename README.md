@@ -1,4 +1,4 @@
-# ag-randmax
+# Cono-models
 
 QiuLab research (Spring 2023)
 * Applications of random matrix theory (RMT) to antigen diversifiation
