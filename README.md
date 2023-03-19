@@ -8,8 +8,12 @@ Group: Qiu Lab (Hunter College of CUNY)
 Semeter: Spring, 2023
 
 ## A reading list
-### Applications of random matrix in biological network characterization
+### Protein toxin predictions
 - Mansbach et al (2019). Snails In Silico: A Review of Computational Studies on the Conopeptides. Marine Drugs.https://www.mdpi.com/1660-3397/17/3/145
+- Zhang et al (2016). "Using the SMOTE technique and hybrid features to predict the types of ion channel-targeted conotoxins". https://www.sciencedirect.com/science/article/abs/pii/S0022519316300686?via%3Dihub
+- Shi et al (2022). ToxMVA: An end-to-end multi-view deep autoencoder method for protein toxicity prediction. https://www.sciencedirect.com/science/article/abs/pii/S0010482522010307?via%3Dihub
+
+### Applications of random matrix in biological network characterization
 - Kikkawa, A. Random Matrix Analysis for Gene Interaction Networks in Cancer Cells. Sci Rep 8, 10607 (2018). https://doi.org/10.1038/s41598-018-28954-1
 This paper uses spacings of adjacent eigenvalues (Ps) to characterize cancer gene networks. 
 -- P(s) is found to follow Wigner distribution (eigenvalues are correlated and repel each other) when network is dense (many edges).
