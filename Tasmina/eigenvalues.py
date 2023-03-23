@@ -1,6 +1,8 @@
 import pandas as pd
 from scipy import sparse
 import numpy as np
+from scipy.special import gamma
+import math
 
 #pd.read_csv()  is for csv like excel like files
 #pd.read_table() is for text files and then you can directly read the data in
@@ -70,13 +72,13 @@ eigenvalues, eigenvectors = np.linalg.eig(numpy_matrix_form)
 sorted_eigenvalues = sorted(eigenvalues)
 eigenvalues_spacing = []
 for i in range(len(eigenvalues)-1):
-    eigenvalues_spacing.append(abs(eigenvalues[i]-eigenvalues[i+1]))
+    eigenvalues_spacing.append(abs(sorted_eigenvalues[i]-sorted_eigenvalues[i+1]))
 
 print("THIS IS FOR FRACTIONAL VARIABILITY FEATURE :::")
 print(" The eigenvalues are : \n", eigenvalues)
 print(" The eigenvectors are : \n", eigenvectors)
 print("The sorted eigenvalues are: \n", sorted_eigenvalues)
-print("The spacings between each eigenvalue are: \n", eigenvalues_spacing)
+print("The spacings between each eigenvalue are: \n", eigenvalues_spacing, "\n\n")
 
 def create_dict(df): 
     translator =  {}
@@ -124,13 +126,13 @@ eigenvalues, eigenvectors = np.linalg.eig(numpy_matrix_form)
 sorted_eigenvalues = sorted(eigenvalues)
 eigenvalues_spacing = []
 for i in range(len(eigenvalues)-1):
-    eigenvalues_spacing.append(abs(eigenvalues[i]-eigenvalues[i+1]))
+    eigenvalues_spacing.append(abs(sorted_eigenvalues[i]-sorted_eigenvalues[i+1]))
 
 print("THIS IS FOR FRACTIONAL GAPLESS FEATURE:::")
 print(" The eigenvalues are : \n", eigenvalues)
 print(" The eigenvectors are : \n", eigenvectors)
 print("The sorted eigenvalues are: \n", sorted_eigenvalues)
-print("The spacings between each eigenvalue are: \n", eigenvalues_spacing)
+print("The spacings between each eigenvalue are: \n", eigenvalues_spacing, "\n\n")
 
 def transposeMatrix(inputMatrix, t, rows):
   
@@ -163,3 +165,18 @@ if (checkingSymmetric(numpy_matrix_form, 16)):
    print("Input matrix is a Symmetric matrix")
 else:
    print("Input matrix is NOT a Symmetric matrix")
+
+# GOE:
+beta = 1
+# GUE:
+#beta = 2
+# GSE: 
+#beta = 4
+
+a = 2 * pow(gamma((2+beta)/2),beta+1) / pow(gamma((1+beta)/2),beta+2)
+b = pow((gamma((2+beta)/2) / gamma((1+beta)/2)),2)
+
+def P(s):
+    return a*pow(s,beta)*math.exp(-b*pow(s,2))
+
+print(P(1))
