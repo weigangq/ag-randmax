@@ -1,4 +1,5 @@
 import pandas as pd
+import matplotlib.pyplot as plt
 from scipy import sparse
 import numpy as np
 from scipy.special import gamma
@@ -179,4 +180,26 @@ b = pow((gamma((2+beta)/2) / gamma((1+beta)/2)),2)
 def P(s):
     return a*pow(s,beta)*math.exp(-b*pow(s,2))
 
-print(P(1))
+power_set = []
+for i in range(len(eigenvalues_spacing)):
+    for j in range(len(eigenvalues_spacing)):
+        if i == j:
+            power_set.append([eigenvalues_spacing[i],P(eigenvalues_spacing[i])])
+        elif (j > i):
+            d = 0
+            for c in range(j-i):
+                d = d + eigenvalues_spacing[c]
+            power_set.append([d,P(d)])
+
+x_coord = []
+y_coord = []
+
+for item in power_set:
+    x_coord.append(item[0])
+    y_coord.append(item[1])
+
+# Line Graph
+plt.plot(x_coord,y_coord)
+plt.xlabel("S")
+plt.ylabel("P(S)")
+plt.show()
