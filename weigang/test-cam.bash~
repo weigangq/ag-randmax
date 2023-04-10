@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+for tsize in {1..2}; do
+    for asize in {1..2}; do
+	for run in {1..2}; do
+	    ./run-cam.py -t "run_$run" -tsize $tsize -asize $asize
+	done
+    done
+done
+
+
+	
