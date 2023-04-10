@@ -12,6 +12,8 @@ Semeter: Spring, 2023
 - Mansbach et al (2019). Snails In Silico: A Review of Computational Studies on the Conopeptides. Marine Drugs.https://www.mdpi.com/1660-3397/17/3/145
 - Zhang et al (2016). "Using the SMOTE technique and hybrid features to predict the types of ion channel-targeted conotoxins". https://www.sciencedirect.com/science/article/abs/pii/S0022519316300686?via%3Dihub
 - Shi et al (2022). ToxMVA: An end-to-end multi-view deep autoencoder method for protein toxicity prediction. https://www.sciencedirect.com/science/article/abs/pii/S0010482522010307?via%3Dihub
+- SMOTE for balancing Data: https://machinelearningmastery.com/smote-oversampling-for-imbalanced-classification/
+- Sampling to correct for imbalanced data sets: https://imbalanced-learn.org/stable/index.html 
 
 ### Applications of random matrix in biological network characterization
 - Kikkawa, A. Random Matrix Analysis for Gene Interaction Networks in Cancer Cells. Sci Rep 8, 10607 (2018). https://doi.org/10.1038/s41598-018-28954-1
