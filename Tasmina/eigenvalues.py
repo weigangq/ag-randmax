@@ -5,6 +5,9 @@ import numpy as np
 from scipy.special import gamma
 import math
 
+'''
+Matt's code
+'''
 #pd.read_csv()  is for csv like excel like files
 #pd.read_table() is for text files and then you can directly read the data in
 df = pd.DataFrame(pd.read_table('/Users/tasminahassan/ag-randmat/data/ospC-NE.diff'))
@@ -78,8 +81,6 @@ for i in range(len(eigenvalues)-1):
 print("THIS IS FOR FRACTIONAL VARIABILITY FEATURE :::")
 print(" The eigenvalues are : \n", eigenvalues)
 print(" The eigenvectors are : \n", eigenvectors)
-print("The sorted eigenvalues are: \n", sorted_eigenvalues)
-print("The spacings between each eigenvalue are: \n", eigenvalues_spacing, "\n\n")
 
 def create_dict(df): 
     translator =  {}
@@ -132,8 +133,6 @@ for i in range(len(eigenvalues)-1):
 print("THIS IS FOR FRACTIONAL GAPLESS FEATURE:::")
 print(" The eigenvalues are : \n", eigenvalues)
 print(" The eigenvectors are : \n", eigenvectors)
-print("The sorted eigenvalues are: \n", sorted_eigenvalues)
-print("The spacings between each eigenvalue are: \n", eigenvalues_spacing, "\n\n")
 
 def transposeMatrix(inputMatrix, t, rows):
   
@@ -167,6 +166,13 @@ if (checkingSymmetric(numpy_matrix_form, 16)):
 else:
    print("Input matrix is NOT a Symmetric matrix")
 
+'''
+Tasmina's code
+'''
+
+print("The sorted eigenvalues are: \n", sorted_eigenvalues)
+print("The spacings between each eigenvalue are: \n", eigenvalues_spacing, "\n\n")
+
 # GOE:
 beta = 1
 # GUE:
@@ -197,6 +203,11 @@ y_coord = []
 for item in power_set:
     x_coord.append(item[0])
     y_coord.append(item[1])
+
+x_coord.pop(-1)
+y_coord.pop(-1)
+print(x_coord)
+print(y_coord)
 
 # Line Graph
 plt.plot(x_coord,y_coord)
