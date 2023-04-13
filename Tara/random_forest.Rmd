@@ -1,0 +1,47 @@
+---
+title: "ML_classifier"
+author: "Tara Doma Lama"
+date: "`r Sys.Date()`"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#load the library
+```{r}
+library(tidyverse)
+library(ggplot2)
+
+```
+# read the file
+
+```{r}
+random <- read_csv("~/CSB-BIOL425/r/sandbox/arezoo_file.csv")#never set col_name = FALSE
+colnames(random) <- c("id" ,"max_depth", "n_estimators", "train_accurarcy", "train_precise", "train_recall", "train_f1", "test_accuracy", "test_precise", "test_recall", "test_f1")
+str(random)
+head(random)
+```
+```{r}
+random %>% 
+  pull(max_depth) %>% # for extract
+  table()
+  
+  
+```
+
+```{r}
+random_2 <- random %>% 
+  filter(max_depth %in% c(5, 7, 8))
+random_2 %>% 
+  ggplot(aes(x = n_estimators , y = test_f1, group = max_depth))+
+  geom_point()+
+  geom_line()+
+  facet_wrap(~max_depth)+
+  theme_bw()+
+  xlab("Number of Trees")+
+  ylab("Test F1 score")
+```
+# max - depth is for the decision tree
+
