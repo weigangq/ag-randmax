@@ -14,8 +14,7 @@ args = parser.parse_args()
 
 # Construction of random binary adjacency matrix
 N = args.size
-seq = np.random.randint(2, size = N*N)
-arr = seq.reshape(N,N)
+arr = np.random.randint(2, size = N*N).reshape(N,N)
 #print(arr)
 
 # Construction of eigenvalues
