@@ -20,7 +20,7 @@ Changes;
  (which is what we've been doing)
 - You have to add each matrix to some function of itself (not sure what A.T is) and
   then calculate the eigenvalue for that
-- Then calculate the difference between the eigenvalue and eigenvector and that becomes
+- Then calculate the difference between the first and second eigenvalue and that becomes
   the P(s) value
 Resources:
 https://byjus.com/maths/eigen-values/#:~:text=Eigenvalues%20are%20the%20special%20set,the%20application%20of%20linear%20transformations.
