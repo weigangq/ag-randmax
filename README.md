@@ -8,6 +8,7 @@ Group: Qiu Lab (Hunter College of CUNY)
 Semeter: Spring, 2023
 
 ## A reading list
+### Molecular diversity of conosnail toxins (Holford lab): Gorson et al (2015). https://academic.oup.com/gbe/article/7/6/1761/2466146
 ### Protein toxin predictions
 - Mansbach et al (2019). Snails In Silico: A Review of Computational Studies on the Conopeptides. Marine Drugs.https://www.mdpi.com/1660-3397/17/3/145
 - Zhang et al (2016). "Using the SMOTE technique and hybrid features to predict the types of ion channel-targeted conotoxins". https://www.sciencedirect.com/science/article/abs/pii/S0022519316300686?via%3Dihub
