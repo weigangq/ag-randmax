@@ -1,5 +1,4 @@
 import matplotlib.pyplot as plt
-import pandas as pd
 import numpy as np
 import argparse
 import random
@@ -10,8 +9,39 @@ from scipy.special import gamma
 # Get dimensions
 parser = argparse.ArgumentParser(description='Pick the dimensions')
 parser.add_argument('-S', '--size', type=int, help='Size of one side of the matrix (Default 50)', default = 50)
+parser.add_argument('-M', '--matrices', type=int, help="Number of matrices (Default 1000)", default=1000)
 args = parser.parse_args()
 
+N = args.size
+reps = args.matrices
+'''
+Changes;
+- Not sure why but you have to create multiple matrices instead of relying one one 
+ (which is what we've been doing)
+- You have to add each matrix to some function of itself (not sure what A.T is) and
+  then calculate the eigenvalue for that
+- Then calculate the difference between the first and second eigenvalue and that becomes
+  the P(s) value
+Resources:
+https://byjus.com/maths/eigen-values/#:~:text=Eigenvalues%20are%20the%20special%20set,the%20application%20of%20linear%20transformations.
+- Found non-binary matrices: I think we can use this on the ospC data but I'm not sure 
+  how we'd create the matrices since we've only been creating one
+https://www.johndcook.com/blog/2018/07/30/goe-eigenvalues/
+- Code for eigenvalues: goe
+'''
+
+# Original code from: https://www.johndcook.com/blog/2018/07/30/goe-eigenvalues/
+diffs = np.zeros(reps)
+for r in range(reps): 
+    A = np.random.randint(2, size = N*N).reshape(N,N)
+    M = 0.5*(A + A.T)
+    w = np.linalg.eigvalsh(M)
+    diffs[r] = abs(w[1] - w[0])
+
+plt.hist(diffs, bins=int(reps**0.5))
+plt.show()
+
+'''
 # Construction of random binary adjacency matrix
 N = args.size
 arr = np.random.randint(2, size = N*N).reshape(N,N)
@@ -23,8 +53,6 @@ sorted_eigenvalues = sorted(eigenvalues)
 eigenvalues_spacing = []
 for i in range(len(eigenvalues)-1):
     eigenvalues_spacing.append(abs(sorted_eigenvalues[i]-sorted_eigenvalues[i+1]))
-#print("The eigenvalues are : \n", eigenvalues)
-#print("The spacings between each eigenvalue are: \n", eigenvalues_spacing)
 
 # Calculation of spacings
 eigenvalues_index = []
@@ -65,7 +93,8 @@ for item in range(len(eigenvalues)):
         x_coord.append(item)
 
 # Plot
-plt.bar(x_coord, power_set, color="maroon", width=0.5)
-plt.xlabel("Spacings")
-plt.ylabel("P(S)")
+plt.hist(power_set, bins=int(100**0.5), color="maroon", width=0.5)
+plt.ylabel("Spacings")
+plt.xlabel("P(S)")
 plt.show()
+'''
