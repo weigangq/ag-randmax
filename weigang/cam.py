@@ -239,7 +239,6 @@ def assign_fitness(machine: dict, target: str, in_stream: str) -> None:
     machine['path'] = edges
     return
 
-
 def get_elites(pop: list) -> list:
     """
     Used by a Population object to find the top 10 sequences of the population based on fitness/novelty/combo without
