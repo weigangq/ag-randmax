@@ -22,7 +22,7 @@ This paper uses spacings of adjacent eigenvalues (Ps) to characterize cancer gen
 -- P(s) is Poisson distributed when gene network is sparse (small number of edges, eigenvalues are independent)
 
 ### General-purpose protein classifers (with protein language models)
-- Multiple Sequence Alignment (MSA) generative protein language models: Lupo et al (2022)."Protein language models trained on multiple sequence alignments learn phylogenetic relationships". Nature Communications. 10.1038/s41467-022-34032-y
+- Multiple Sequence Alignment (MSA) generative protein language models: Lupo et al (2022)."Protein language models trained on multiple sequence alignments learn phylogenetic relationships". Nature Communications. https://www.nature.com/articles/s41467-022-34032-y
 - Strodthoff N, Wagner P, Wenzel M, Samek W. (2020). UDSMProt: universal deep sequence models for protein classification. Bioinformatics. 2020 Apr 15;36(8):2401-2409. https://doi/10.1093/bioinformatics/btaa003. Github: https://github.com/nstrodt/UDSMProt
 - Ananthan Nambiar, Simon Liu, Maeve Heflin, John Malcolm Forsyth, Sergei Maslov, Mark Hopkins and Anna Ritz (2023). Transformer Neural Networks for Protein Family and Interaction Prediction Tasks. J. Computational Biology. 30 (1): 95. DOI: 10.1089/cmb.2022.0132. Github: https://github.com/annambiar/PRoBERTa
 - ESM-1b model: https://github.com/facebookresearch/esm
