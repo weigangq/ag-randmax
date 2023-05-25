@@ -37,6 +37,10 @@ This paper uses spacings of adjacent eigenvalues (Ps) to characterize cancer gen
 ### ICTCPred Random Forest model using SMOTE sampling
 https://www.sciencedirect.com/science/article/pii/S0022519316300686
 
+### A Deep Learning Approach with Data Augmentation to Predict Novel Spider Neurotoxic Peptides
+Lee, Byungjo, Min Kyoung Shin, In-Wook Hwang, Junghyun Jung, Yu Jeong Shim, Go Woon Kim, Seung Tae Kim, Wonhee Jang, and Jung-Suk Sung. 2021. "A Deep Learning Approach with Data Augmentation to Predict Novel Spider Neurotoxic Peptides" International Journal of Molecular Sciences 22, no. 22: 12291. https://doi.org/10.3390/ijms222212291
+Their GitHub: https://github.com/bzlee-bio/NT_estimation
+
 ## Data & tools
 - Conoserver: https://www.conoserver.org/
 - AlphaFold: https://github.com/deepmind/alphafold
