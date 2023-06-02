@@ -1,0 +1,33 @@
+# Find the count of the cysteine framework and superfamily of new dataset
+# merge both file; conus_summary.csv and the conomature_framework
+# read the file
+
+library(tidyverse)
+super <- read_csv("~/Documents/snail_file/ConoDictor/conus-summary.csv")
+cysteine_framework <- read_csv("~/CSB-BIOL425/python/conomature_merge.csv")
+
+#rename the common column 
+cysteine_framework <- cysteine_framework %>% 
+  rename(sequence = record_name)
+
+# merge both files
+(conotoxins <- merge(x = super,
+                              y = cysteine_framework,
+                              by = "sequence"
+                              
+))
+##############################################################################
+#Data cleaning and analysis
+#filter the columns
+#sequence, definitive_pred, framework
+
+conotoxins %>% 
+  select(sequence, definitive_pred, framework)
+
+conotoxins %>%
+  group_by(framework, definitive_pred) %>%
+  count() %>% 
+  arrange(desc(n))
+
+
+###########################################################################
