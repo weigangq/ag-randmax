@@ -37,6 +37,10 @@ This paper uses spacings of adjacent eigenvalues (Ps) to characterize cancer gen
 ### ICTCPred Random Forest model using SMOTE sampling
 https://www.sciencedirect.com/science/article/pii/S0022519316300686
 
+### Kmer-based unsupervised clustering
+- The Snekmer pipeline: https://github.com/PNNL-CompBio/Snekmer
+- Paper: https://academic.oup.com/bioinformaticsadvances/article/3/1/vbad005/7024077?login=false
+
 ## Data & tools
 - Conoserver: https://www.conoserver.org/
 - AlphaFold: https://github.com/deepmind/alphafold
