@@ -1,0 +1,174 @@
+---
+title: "Chi_squared"
+author: "Tara Doma Lama"
+date: "`r Sys.Date()`"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+#load the libraries
+```{r}
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+library(ggstatsplot)
+
+```
+
+#STEP 1: 
+
+load the file
+give new column names
+tidy the data
+```{r}
+conopeptide <- read_csv("~/CSB-BIOL425/unix/sandbox/conopeptide_csv_final", col_names = FALSE)
+colnames(conopeptide) <- c("id", "hmm", "psm", "predicted")#new column names
+conopeptide_new <- conopeptide %>% 
+  mutate(seqid = str_split_i(id, "_", 1), framework = str_split_i(id, "_", 2))  
+  glimpse(conopeptide_new)
+```
+
+#Step 2
+Visaulize the data
+```{r}
+fam_counts <- conopeptide_new %>% 
+  group_by(predicted, framework) %>% 
+  count()
+head(fam_counts)
+
+#plot the data
+fam_counts %>% 
+  ggplot(aes(x = framework, y = n))+
+  geom_col()+
+  theme_bw()+
+  facet_wrap(~predicted)
+```
+
+#Visualize separately
+```{r}
+conopeptide_family <- conopeptide_new %>%
+  filter(predicted != c("UNKNOWN")) %>% 
+  group_by(predicted) %>%
+  count()
+# literature says M is the most observed superfamily and here it comes second to the O1
+conopeptide_family %>% 
+  ggplot(aes(x = predicted, y = n))+
+  geom_col()+
+  theme_bw()+
+  coord_flip()
+# literature says cysteine framework is the most observed framework.
+
+```
+
+
+```{r}
+conopeptide_framework <- conopeptide_new %>%
+  group_by(framework) %>%
+  count() %>% 
+  arrange(desc(n))
+  
+
+conopeptide_framework %>% 
+  ggplot(aes(x = framework, y = n))+
+  geom_col()+#default stat is identity, height of the bar represents the raw value of the y
+  theme_bw()
+# literature says cysteine framework 6, 1  is the most observed framework.
+
+```
+
+#most enocded superfamilies is A, M and O1
+```{r}
+A <- function(x = "Novel"){
+  conopeptide_new %>%
+    filter(framework == x) %>% 
+    group_by(predicted, framework) %>%
+    count()}
+
+A( x = "Novel")
+A( x = "M")#M contains nine cysteine frameworks and they are found in all other superfamilies, look at framework 14 and 9
+A( x = "O1")
+
+```
+
+take pedicted and framework as the two variables
+visaulize their association via the plot
+```{r}
+#get the counts
+fam_counts_A <- fam_counts %>% # new object 
+  filter(predicted %in% c("A", "M")) %>% 
+  filter(framework %in% c(8,22)) %>% #framework 8 is the pharmacological interest
+  group_by(predicted, framework) %>% 
+  summarise(sum_total = sum(n))
+fam_counts_A
+
+#plot the graph
+fam_counts_A %>% 
+  ggplot(aes(x = framework, y = sum_total, fill = predicted))+
+  geom_col(stat = "identity", position = "dodge")
+  
+
+```
+#STEP : 3
+
+chissquare is non parametric, calculate the frequencies of the pairwise association
+conditions for chisquared test are:
+1.two categorical variables: framework, predicted
+2.there are two categories for each group
+3. frequencies in each cell is at least one
+4. independence of the sample
+Since, we meet all the above condition, we perform the chi squared test
+
+Null hypothesis: there is no association between the predicted, superfamily, and framework.
+
+Chi_square test
+
+
+```{r}
+fam_count_clean <- xtabs (sum_total ~ predicted + framework, data = fam_counts_A)# for correct format
+fam_count_clean
+
+#chisquare test
+fam_count_chi <- chisq.test(fam_count_clean)
+
+fam_count_chi
+fam_count_chi$expected
+fam_count_chi$residuals# see where the observation lies compared to the expected
+
+
+```
+#Here, the p value indicates that the probability of observing the chisquared test statistics at least as above or larger is less than 2.2e-16. Hence, we reject the null hpothesis.
+
+
+#STEP 4:
+#replot with the statistical result
+```{r}
+fam_counts <- conopeptide_new %>%
+  group_by(predicted, framework) %>% #grouped data should be ungrouped
+  filter(predicted %in% c("A", "M")) %>% 
+  filter(framework %in% c(8,22))
+# if the frequency distribution of two categorical variables are independent of each other using the contingency table analysis
+fam_stats <- ggbarstats(
+  data = fam_counts,
+  x = predicted ,# rows in contingency table are mapped in x axis
+  y = framework,
+  type = "nonparametric",
+  label = "percentage" # both gives counts and percentage
+)
+fam_stats
+
+#get the stats
+extract_stats(fam_stats)
+```
+# because the type of the test is non parametric, they performed the pearson's Chi_squared test.
+#yate's continuity decreases chisquared value.
+
+
+
+
+
+
+

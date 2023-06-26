@@ -8,6 +8,9 @@ Group: Qiu Lab (Hunter College of CUNY)
 Semeter: Spring, 2023
 
 ## A reading list
+### Molecular diversity of conosnail toxins (Holford & Qiu labs)
+- Gorson et al (2015). "Molecular Diversity and Gene Evolution of the Venom Arsenal of Terebridae Predatory Marine Snails". https://academic.oup.com/gbe/article/7/6/1761/2466146
+- Verdes et al (2016). "From Mollusks to Medicine: A Venomics Approach for the Discovery and Characterization of Therapeutics from Terebridae Peptide Toxins ". https://www.mdpi.com/2072-6651/8/4/117
 ### Protein toxin predictions
 - Mansbach et al (2019). Snails In Silico: A Review of Computational Studies on the Conopeptides. Marine Drugs.https://www.mdpi.com/1660-3397/17/3/145
 - Zhang et al (2016). "Using the SMOTE technique and hybrid features to predict the types of ion channel-targeted conotoxins". https://www.sciencedirect.com/science/article/abs/pii/S0022519316300686?via%3Dihub
@@ -22,6 +25,7 @@ This paper uses spacings of adjacent eigenvalues (Ps) to characterize cancer gen
 -- P(s) is Poisson distributed when gene network is sparse (small number of edges, eigenvalues are independent)
 
 ### General-purpose protein classifers (with protein language models)
+- Multiple Sequence Alignment (MSA) generative protein language models: Lupo et al (2022)."Protein language models trained on multiple sequence alignments learn phylogenetic relationships". Nature Communications. https://www.nature.com/articles/s41467-022-34032-y
 - Strodthoff N, Wagner P, Wenzel M, Samek W. (2020). UDSMProt: universal deep sequence models for protein classification. Bioinformatics. 2020 Apr 15;36(8):2401-2409. https://doi/10.1093/bioinformatics/btaa003. Github: https://github.com/nstrodt/UDSMProt
 - Ananthan Nambiar, Simon Liu, Maeve Heflin, John Malcolm Forsyth, Sergei Maslov, Mark Hopkins and Anna Ritz (2023). Transformer Neural Networks for Protein Family and Interaction Prediction Tasks. J. Computational Biology. 30 (1): 95. DOI: 10.1089/cmb.2022.0132. Github: https://github.com/annambiar/PRoBERTa
 - ESM-1b model: https://github.com/facebookresearch/esm
@@ -32,6 +36,10 @@ This paper uses spacings of adjacent eigenvalues (Ps) to characterize cancer gen
 
 ### ICTCPred Random Forest model using SMOTE sampling
 https://www.sciencedirect.com/science/article/pii/S0022519316300686
+
+### Kmer-based unsupervised clustering
+- The Snekmer pipeline: https://github.com/PNNL-CompBio/Snekmer
+- Paper: https://academic.oup.com/bioinformaticsadvances/article/3/1/vbad005/7024077?login=false
 
 ## Data & tools
 - Conoserver: https://www.conoserver.org/
