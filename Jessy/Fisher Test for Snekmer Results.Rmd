@@ -1,0 +1,66 @@
+---
+title: "Fisher Test for Snekmer Results - Teretoxin and Conotoxin Datasets"
+output: html_notebook
+---
+
+Conotoxin Fisher test results : Comparing the statistical significance between the different ion channels and 8 clusters. (k=8, A= standard reduction, chemical properties)
+
+```{r}
+setwd("/Users/jessyramirez/cono-models/Jessy/Cono_Snek/ConoSnekmer_K8/output_k8_a0/cluster")
+
+library(tidyverse)
+
+# read tsv
+cono_snek <- read.csv("snekmer.csv")
+```
+
+```{r}
+cono_snek
+```
+
+```{r}
+df <- tibble(cono_snek) %>% separate(sequence_id, c("ID", "ion")) %>% remove_rownames %>% column_to_rownames(var="ID")
+df
+```
+
+
+
+```{r}
+stat_df = table(df$cluster, df$ion) 
+stat_df
+```
+
+
+```{r}
+fisher.test(stat_df)
+```
+
+
+```{r}
+fisher.test(table(df$cluster, df$ion), workspace = 2e+06)
+```
+
+### (k=8, A= standard reduction, chemical properties)
+
+```{r}
+setwd("/Users/jessyramirez/cono-models/Jessy/Cono_Snek/")
+
+cono_snek <- read.csv("ConoSnekmer_K8/output_k11_a0/cluster/snekmer.csv")
+
+df <- tibble(cono_snek) %>% separate(sequence_id, c("ID", "ion")) %>% remove_rownames %>% column_to_rownames(var="ID")
+
+df = as.data.frame(df)
+
+stat_df = table(df$cluster, df$ion) 
+stat_df
+```
+
+```{r}
+#fisher.test(stat_df)
+
+fisher.test(table(df$cluster, df$ion), workspace = 2e+09)
+```
+
+
+
+

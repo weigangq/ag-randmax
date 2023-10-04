@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>Snekmer Cluster Report</title>
+    </head>
+    <body>
+            <h1>Snekmer Cluster Results</h1>
+            <p>Snekmer clustering results are linked below. If `cluster_plots` are enabled in the config, they will be shown below.</p>
+            <a href=cluster>
+                See Snekmer clustering results in file explorer: (<b>output/cluster/</b>)
+            </a>
+            <br>
+            <a href=cluster/snekmer.csv>
+                Direct link to results table: (<b>snekmer.csv</b>)
+            </a>
+            <h2>PCA Explained Variance</h2>
+            <img src=cluster/figures/pca_explained_variance_curve.png width="400" height="300" />
+            <h2>Clusters (UMAP)</h2>
+            <img src=cluster/figures/umap.png width="400" height="300" />
+            <h2>Clusters (t-SNE)</h2>
+            <img src=cluster/figures/tsne.png width="400" height="300" />
+    </body>
+</html>
