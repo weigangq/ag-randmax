@@ -12,6 +12,7 @@ Semeter: Spring, 2023
 - Gorson et al (2015). "Molecular Diversity and Gene Evolution of the Venom Arsenal of Terebridae Predatory Marine Snails". https://academic.oup.com/gbe/article/7/6/1761/2466146
 - Verdes et al (2016). "From Mollusks to Medicine: A Venomics Approach for the Discovery and Characterization of Therapeutics from Terebridae Peptide Toxins ". https://www.mdpi.com/2072-6651/8/4/117
 ### Protein toxin predictions
+- Monroe et al (2023). "Conotoxin Prediction: New Features to Increase Prediction Accuracy".  Toxins 2023, 15(11), 641; https://doi.org/10.3390/toxins15110641
 - Mansbach et al (2019). Snails In Silico: A Review of Computational Studies on the Conopeptides. Marine Drugs.https://www.mdpi.com/1660-3397/17/3/145
 - Zhang et al (2016). "Using the SMOTE technique and hybrid features to predict the types of ion channel-targeted conotoxins". https://www.sciencedirect.com/science/article/abs/pii/S0022519316300686?via%3Dihub
 - Shi et al (2022). ToxMVA: An end-to-end multi-view deep autoencoder method for protein toxicity prediction. https://www.sciencedirect.com/science/article/abs/pii/S0010482522010307?via%3Dihub
